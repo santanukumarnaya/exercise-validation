@@ -1,5 +1,4 @@
 import { useReducer } from "react";
-
 const initialState ={
     presonal:{
             fullName:"",
