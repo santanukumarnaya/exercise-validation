@@ -1,34 +1,16 @@
-import { useState, useEffect} from "react";
-import Form from "./components/Form";
+import Validation from "./pages/Validation";
+import HomePage from "./pages/HomePage";
+import React from "react";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css"
 function App(){
-    const [formData, setFormData] = useState({
-        presonal:{
-            fullName:"",
-            emailId:"",
-            phoneNum:""
-        },
-        addressInfo:{
-            country:"",
-            city:"",
-            zipCode:""
-        },
-        passwordAuth:{
-            password:"",
-            cnfPassword:""
-        }
-    });
-    
-    const[error, setError] = useState({});
-
-    const validateStepOne = () =>{
-        const err={};
-
-        const{fullName, emailId, phone} = formData.presonal;
-        
-        if(!fullName) err.fullName = "Name should not be blank";
-        if(!emailId || !emailId.includes("@")) err.emailId ="email reruired and must inclued @";
-         
-    };  
+   return ( 
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/validation" element={<Validation/>}/>
+        </Routes>
+    </BrowserRouter>
+    )
 }
 export default App;
